@@ -1,9 +1,6 @@
 on early-init
     start ueventd
 
-# create mountpoints
-    mkdir /mnt 0775 root system
-
 on init
 
 sysclktz 0
@@ -28,6 +25,9 @@ loglevel 3
 # Right now vendor lives on the same filesystem as system,
 # but someday that may change.
     symlink /system/vendor /vendor
+
+# create mountpoints
+    mkdir /mnt 0775 root system
 
 # Create cgroup mount point for cpu accounting
     mkdir /acct
